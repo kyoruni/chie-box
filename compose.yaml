@@ -7,3 +7,28 @@ services:
       - 8080:8080
     volumes:
       - ./:/home/chie-box
+    depends_on:
+      - postgresql
+    environment:
+      - DB_CONNECTION=pgsql
+      - DB_HOST=postgres
+      - DB_DATABASE=chiebox
+      - DB_USERNAME=postgres
+      - DB_PASSWORD=secret
+  postgresql:
+    build:
+      context: .
+      dockerfile: postgresql/Dockerfile
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: secret
+      POSTGRES_DB: chiebox
+    ports:
+      - "5432:5432"
+    volumes:
+      - db-data:/var/lib/postgresql/data
+      - ./postgresql/postgresql.conf:/var/lib/postgresql/data/postgresql.conf
+
+volumes:
+  db-data:
