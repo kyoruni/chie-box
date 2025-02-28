@@ -9,5 +9,5 @@ $ docker compose up -d
 ## DB
 
 ```bash
-$ docker compose exec postgresql psql -U postgres -d chiebox
+$ docker compose exec db psql -U postgres -d chiebox
 ```
