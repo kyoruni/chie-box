@@ -3,18 +3,26 @@ services:
     build: .
     tty: true
     restart: always
-    ports:
-      - 8080:8080
     volumes:
-      - ./:/home/chie-box
+      - ./backend:/home/chie-box
     depends_on:
       - db
     environment:
       - DB_CONNECTION=pgsql
-      - DB_HOST=postgres
+      - DB_HOST=db
       - DB_DATABASE=chiebox
       - DB_USERNAME=postgres
       - DB_PASSWORD=secret
+  nginx:
+    build:
+      context: ./nginx
+    restart: always
+    ports:
+      - "8080:80"
+    volumes:
+      - ./backend:/home/chie-box
+    depends_on:
+      - php
   db:
     build:
       context: .
