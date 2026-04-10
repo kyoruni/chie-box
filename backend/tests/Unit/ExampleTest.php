@@ -1,5 +1,5 @@
 <?php
 
-it('asserts true is true', function () {
+it('trueはtrueである', function () {
     expect(true)->toBeTrue();
 });
