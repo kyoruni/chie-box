@@ -6,6 +6,12 @@
 $ docker compose up -d
 ```
 
+## テスト
+
+```bash
+$ docker compose exec php composer test
+```
+
 ## DB
 
 ```bash
