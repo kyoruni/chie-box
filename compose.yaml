@@ -4,7 +4,7 @@ services:
     tty: true
     restart: always
     volumes:
-      - ./backend:/home/chie-box
+      - ./:/home/chie-box
     depends_on:
       - db
     environment:
@@ -20,7 +20,7 @@ services:
     ports:
       - "8080:80"
     volumes:
-      - ./backend:/home/chie-box
+      - ./:/home/chie-box
     depends_on:
       - php
   db:

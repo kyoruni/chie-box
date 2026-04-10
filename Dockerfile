@@ -18,7 +18,7 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 
 # 作業ディレクトリの作成
 RUN mkdir -p /home/chie-box
-WORKDIR /home/chie-box
+WORKDIR /home/chie-box/backend
 
 # コンテナ起動時のデフォルトコマンド
 CMD ["php-fpm"]
